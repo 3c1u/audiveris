@@ -44,6 +44,8 @@ allprojects {
 run {
     minHeapSize = '512m'
     maxHeapSize = '1g'
+    
+    jvmArgs = ['-Dapple.laf.useScreenMenuBar=true']
 
     // Retrieve CLI arguments from cmdLineArgs property if any
     if (project.hasProperty("cmdLineArgs")) {
@@ -92,6 +94,11 @@ dependencies {
     compileOnly 'org.projectlombok:lombok:1.16.20'
     annotationProcessor 'org.projectlombok:lombok:1.16.20'
     testAnnotationProcessor 'org.projectlombok:lombok:1.16.20'
+}
+
+// Quaqua for native look-and-feel
+dependencies {
+    compile files("VAqua7.jar")
 }
 
 dependencies {

@@ -1,3 +1,6 @@
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+
 //------------------------------------------------------------------------------------------------//
 //                                                                                                //
 //                                       A u d i v e r i s                                        //
@@ -26,26 +29,37 @@
  *
  * @author Hervé Bitteur
  */
-public final class Audiveris
-{
-    //~ Constructors -------------------------------------------------------------------------------
+public final class Audiveris {
+    // ~ Constructors
+    // -------------------------------------------------------------------------------
 
     /** To avoid instantiation. */
-    private Audiveris ()
-    {
+    private Audiveris() {
     }
 
-    //~ Methods ------------------------------------------------------------------------------------
-    //------//
+    // ~ Methods
+    // ------------------------------------------------------------------------------------
+    // ------//
     // main //
-    //------//
+    // ------//
     /**
      * The main entry point, which just calls {@link org.audiveris.omr.Main#main}.
      *
      * @param args These arguments are simply passed to Main
      */
-    public static void main (final String[] args)
-    {
+    public static void main(final String[] args) {
+        System.setProperty("apple.laf.useScreenMenuBar", "true");
+        System.setProperty("apple.awt.application.name", "Audiveris");
+
+        if (System.getProperty("os.name", "").startsWith("Mac OS")) {
+            try {
+                UIManager.setLookAndFeel("org.violetlib.aqua.AquaLookAndFeel");
+            } catch (ClassNotFoundException | InstantiationException | IllegalAccessException
+                    | UnsupportedLookAndFeelException e) {
+                e.printStackTrace();
+            }
+        }
+
         org.audiveris.omr.Main.main(args);
     }
 }

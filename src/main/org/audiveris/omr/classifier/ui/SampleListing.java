@@ -488,6 +488,9 @@ class SampleListing
             getInputMap(JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT).put(
                     KeyStroke.getKeyStroke("DELETE"),
                     "RemoveAction");
+            getInputMap(JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT).put(
+                    KeyStroke.getKeyStroke("BACK_SPACE"),
+                    "RemoveAction");
             getActionMap().put("RemoveAction", new RemoveAction());
 
             // ShapePane popup inherited from scrollablePanel parent

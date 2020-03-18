@@ -507,6 +507,7 @@ public class MainGui
         OMR.gui = this;
 
         frame = getMainFrame();
+        frame.getRootPane().putClientProperty("Aqua.windowStyle", "unifiedToolBar");
 
         stubsController = StubsController.getInstance();
         stubsController.subscribe(this);
@@ -680,7 +681,7 @@ public class MainGui
         JMenuBar innerBar = mgr.getMenuBar();
 
         // Gauges = voices | progress | memory
-        JPanel gauges = new JPanel();
+        /* JPanel gauges = new JPanel();
         gauges.setLayout(new BorderLayout());
         gauges.add(SigPainter.getVoicePanel(), BorderLayout.WEST);
         gauges.add(StepMonitoring.createMonitor().getComponent(), BorderLayout.CENTER);
@@ -695,13 +696,13 @@ public class MainGui
         // Remove useless borders
         UIUtil.suppressBorders(gauges);
         innerBar.setBorder(null);
-        outerBar.setBorder(null);
+        outerBar.setBorder(null); */
 
-        frame.setJMenuBar(outerBar);
+        frame.setJMenuBar(innerBar);
 
         // Mac Application menu
         if (WellKnowns.MAC_OS_X) {
-            MacApplication.setupMacMenus();
+            // MacApplication.setupMacMenus();
         }
     }
 
