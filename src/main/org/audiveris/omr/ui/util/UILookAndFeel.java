@@ -29,7 +29,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.swing.UIManager;
-// import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  * Class {@code UILookAndFeel} enables to select the UI Look and Feel to be used in this
@@ -103,9 +103,9 @@ public class UILookAndFeel
      */
     public static void setUI (String className)
     {
-        return;
+        // return;
 
-        /* com.jgoodies.looks.Options.setUseNarrowButtons(true);
+        com.jgoodies.looks.Options.setUseNarrowButtons(true);
 
         try {
             if (className != null) {
@@ -120,7 +120,7 @@ public class UILookAndFeel
                  UnsupportedLookAndFeelException ex) {
             //ex.printStackTrace();
             logger.warn(ex.toString());
-        } */
+        }
     }
 
     //-----------//

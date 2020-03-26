@@ -51,14 +51,11 @@ public final class Audiveris {
         System.setProperty("apple.laf.useScreenMenuBar", "true");
         System.setProperty("apple.awt.application.name", "Audiveris");
 
-        if (System.getProperty("os.name", "").startsWith("Mac OS")) {
-            try {
-                // UIManager.setLookAndFeel("org.violetlib.aqua.AquaLookAndFeel");
-                UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-            } catch (ClassNotFoundException | InstantiationException | IllegalAccessException
-                    | UnsupportedLookAndFeelException e) {
-                e.printStackTrace();
-            }
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException
+                | UnsupportedLookAndFeelException e) {
+            e.printStackTrace();
         }
 
         org.audiveris.omr.Main.main(args);

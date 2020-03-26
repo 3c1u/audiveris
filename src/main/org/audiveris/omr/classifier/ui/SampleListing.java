@@ -486,7 +486,7 @@ class SampleListing
 
             // Support for delete key
             getInputMap(JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT).put(
-                    KeyStroke.getKeyStroke("DELETE"),
+                    KeyStroke.getKeyStroke("BACK_SPACE"),
                     "RemoveAction");
             getInputMap(JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT).put(
                     KeyStroke.getKeyStroke("BACK_SPACE"),

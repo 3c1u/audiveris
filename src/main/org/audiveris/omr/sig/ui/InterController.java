@@ -594,7 +594,7 @@ public class InterController
         InputMap inputMap = view.getInputMap(JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
 
         // Support for delete key
-        inputMap.put(KeyStroke.getKeyStroke("DELETE"), "RemoveAction");
+        inputMap.put(KeyStroke.getKeyStroke("BACK_SPACE"), "RemoveAction");
         view.getActionMap().put("RemoveAction", new RemoveAction());
     }
 
@@ -1532,7 +1532,7 @@ public class InterController
     // RemoveAction //
     //--------------//
     /**
-     * Action to remove the selected inter. (Bound to DELETE key)
+     * Action to remove the selected inter. (Bound to BACK_SPACE key)
      */
     private class RemoveAction
             extends AbstractAction
