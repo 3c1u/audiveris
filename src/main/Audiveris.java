@@ -53,7 +53,8 @@ public final class Audiveris {
 
         if (System.getProperty("os.name", "").startsWith("Mac OS")) {
             try {
-                UIManager.setLookAndFeel("org.violetlib.aqua.AquaLookAndFeel");
+                // UIManager.setLookAndFeel("org.violetlib.aqua.AquaLookAndFeel");
+                UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
             } catch (ClassNotFoundException | InstantiationException | IllegalAccessException
                     | UnsupportedLookAndFeelException e) {
                 e.printStackTrace();
