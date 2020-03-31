@@ -21,6 +21,7 @@
 // </editor-fold>
 package org.audiveris.omr.classifier.ui;
 
+import org.audiveris.omr.WellKnowns;
 import org.audiveris.omr.classifier.Classifier;
 import org.audiveris.omr.classifier.Evaluation;
 import org.audiveris.omr.classifier.Sample;
@@ -485,8 +486,14 @@ class SampleListing
             add(list, BorderLayout.CENTER);
 
             // Support for delete key
+            KeyStroke deleteKey = KeyStroke.getKeyStroke("DELETE");
+            if (WellKnowns.MAC_OS_X) {
+                // on macOS, delete key is mapped on VK_BACK_SPACE
+                deleteKey = KeyStroke.getKeyStroke(KeyEvent.VK_BACK_SPACE, 0);
+            }
+            
             getInputMap(JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT).put(
-                    KeyStroke.getKeyStroke("DELETE"),
+                    deleteKey,
                     "RemoveAction");
             getActionMap().put("RemoveAction", new RemoveAction());
 

@@ -24,6 +24,7 @@ package org.audiveris.omr.sig.ui;
 import ij.process.ByteProcessor;
 
 import org.audiveris.omr.OMR;
+import org.audiveris.omr.WellKnowns;
 import org.audiveris.omr.constant.Constant;
 import org.audiveris.omr.constant.ConstantSet;
 import org.audiveris.omr.glyph.Glyph;
@@ -90,6 +91,8 @@ import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.geom.Area;
+import java.awt.event.KeyEvent;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -594,7 +597,13 @@ public class InterController
         InputMap inputMap = view.getInputMap(JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
 
         // Support for delete key
-        inputMap.put(KeyStroke.getKeyStroke("DELETE"), "RemoveAction");
+        KeyStroke deleteKey = KeyStroke.getKeyStroke("DELETE");
+        if (WellKnowns.MAC_OS_X) {
+            // on macOS, delete key is mapped on VK_BACK_SPACE
+            deleteKey = KeyStroke.getKeyStroke(KeyEvent.VK_BACK_SPACE, 0);
+        }
+        
+        inputMap.put(deleteKey, "RemoveAction");
         view.getActionMap().put("RemoveAction", new RemoveAction());
     }
 
